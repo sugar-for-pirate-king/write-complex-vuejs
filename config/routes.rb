@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  scope :web, module: :web do
+    resources :users, only: %i[new] do
+      collection do
+        get 'new_step2'
+        get 'new_step3'
+      end
+    end 
+  end
 end
